@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Contact</title>
+    <link rel="stylesheet" th:href="@{/css/add-contact.css}"/>
+    <style>
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            background: #ddd;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .phone-value {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h1>Add New Contact</h1>
+
+<form action="/contacts/add" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required/><br/>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required/><br/>
+
+    <label for="phone">Phone:</label>
+    <input type="hidden" id="phone" name="phone" required/>
+    <input type="range" id="phoneSlider" min="1000000000" max="9999999999" value="1234567890" required/>
+    <span class="phone-value" id="phoneValue">1234567890</span><br/>
+    <label for="companyId">Company:</label>
+    <select id="companyId" name="companyId">
+        <option value="" disabled selected>Select a company</option>
+        <li th:each="company : ${companies}">
+            <option th:value="${company.id}" th:text="${company.name}"></option>
+        </li>
+    </select><br/>
+    <br>
+
+    <button type="submit">Add Contact</button>
+</form>
+
+<a href="/contacts">Back to Contact List</a>
+
+<script>
+    const phoneSlider = document.getElementById('phoneSlider');
+    const phoneValue = document.getElementById('phoneValue');
+    const phoneInput = document.getElementById('phone');
+
+    phoneSlider.addEventListener('input', function () {
+        phoneValue.textContent = this.value;
+        phoneInput.value = this.value;
+    });
+
+    phoneValue.textContent = phoneSlider.value;
+    phoneInput.value = phoneSlider.value;
+</script>
+</body>
+</html>

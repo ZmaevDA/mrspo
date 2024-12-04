@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2 id="modalTitle">Modal Title</h2>
+        <form id="modalForm" method="post">
+            <input type="hidden" id="modalId" name="id">
+            <div class="form-group">
+                <label for="modalName">Name</label>
+                <input type="text" id="modalName" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="modalIndustry">Industry</label>
+                <input type="text" id="modalIndustry" name="industry" required>
+            </div>
+            <div class="modal-buttons">
+                <button type="button" id="cancelButton">Cancel</button>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

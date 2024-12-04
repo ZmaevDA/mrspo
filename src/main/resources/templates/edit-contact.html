@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Contact</title>
+    <link rel="stylesheet" th:href="@{/css/add-contact.css}"/>
+</head>
+<body>
+<h1>Edit Contact</h1>
+
+<form action="/contacts/edit" method="post">
+    <input type="hidden" name="id" th:value="${contact.id}"/>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:value="${contact.name}" required/><br/>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" th:value="${contact.email}" required/><br/>
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" th:value="${contact.phone}" required/><br/>
+    <select id="companyId" name="companyId">
+        <option value="" disabled selected>Select a company</option>
+        <li th:each="company : ${companies}">
+            <option th:value="${company.id}" th:text="${company.name}"></option>
+        </li>
+    </select><br/>
+    <button type="submit">Update Contact</button>
+</form>
+
+<a href="/contacts">Back to Contact List</a>
+</body>
+</html>

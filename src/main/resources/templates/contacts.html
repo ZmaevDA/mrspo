@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Contact Manager</title>
+    <link rel="stylesheet" th:href="@{/css/main-styles.css}"/>
+</head>
+<body>
+<div class="header">
+    <div class="header-container">
+        <img src="/image/contact-logo.svg" alt="LOGO" class="header-logo"/>
+        <h1>Contact Manager</h1>
+    </div>
+</div>
+
+<nav>
+    <ul class="navbar">
+        <li><a th:href="@{/contacts}">Contacts</a></li>
+        <li><a th:href="@{/companies}">Companies</a></li>
+    </ul>
+</nav>
+
+<div style="width: 100%; justify-content: center; flex-direction: column; display: flex">
+    <div style="justify-content: center; display: flex">
+        <div class="add-button">
+            <a href="#" class="open-modal-button" style="width: 20px; height: 20px; margin-left: -90px" data-action="/contacts/add">
+                <img src="/image/plus.svg" alt="Add new contact" style="width: 20px;height: 20px"/>
+            </a>
+        </div>
+    </div>
+    <ul class="list">
+        <li th:each="contact : ${contacts}">
+            <div>
+                <span class="industry-label">Name:</span>
+                <strong class="industry-name" th:text="${contact.name}"></strong>
+                <br>
+                <span class="industry-label">Email:</span>
+                <span class="industry-name" th:text="${contact.email}"></span>
+                <br>
+                <span class="industry-label">Phone:</span>
+                <span class="industry-name" th:text="${contact.phone}"></span>
+            </div>
+
+            <div th:if="${contact.company != null}">
+                <span class="industry-label">Company:</span>
+                <span class="industry-name" th:text="${contact.company.name}"></span>
+                <br>
+                <span class="industry-label">Industry:</span>
+                <span class="industry-name" th:text="${contact.company.industry}"></span>
+            </div>
+
+            <div th:if="${contact.addresses.size() > 0}">
+                <strong>Addresses:</strong>
+                <ul>
+                    <li th:each="address : ${contact.addresses}">
+                        <span th:text="${address.street} + ', ' + ${address.city} + ', ' + ${address.state} + ' ' + ${address.postalCode} + ', ' + ${address.country}"></span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="button-container">
+                <form action="#" method="get">
+                    <input type="hidden" name="id" th:value="${contact.id}"/>
+                    <button type="submit" class="open-modal-button"
+                            th:data-id="${contact.id}"
+                            th:data-name="${contact.name}"
+                            th:data-email="${contact.email}"
+                            th:data-phone="${contact.phone}"
+                            th:data-action="@{/contacts/edit}">
+                        <img src="/image/edit.svg" alt="Edit"/>
+                    </button>
+                </form>
+
+                <form action="/contacts/remove" method="post">
+                    <input type="hidden" name="id" th:value="${contact.id}"/>
+                    <button type="submit" class="remove">
+                        <img src="/image/trash-bin.svg" alt="Remove"/>
+                    </button>
+                </form>
+            </div>
+
+        </li>
+    </ul>
+</div>
+
+<div th:replace="~{fragments/add-contact-modal.html}"></div>
+
+<script src="/js/modal-contact.js"></script>
+
+</body>
+</html>

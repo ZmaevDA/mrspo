@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Address Manager</title>
+    <link rel="stylesheet" th:href="@{/css/main-styles.css}"/>
+</head>
+<body>
+<h1>Address Manager</h1>
+
+<a href="/addresses/add">Add New Address</a>
+
+<ul>
+    <li th:each="address : ${addresses}">
+        <div>
+            <span th:text="${address.street}"></span>,
+            <span th:text="${address.city}"></span>,
+            <span th:text="${address.state}"></span>,
+            <span th:text="${address.postalCode}"></span>,
+            <span th:text="${address.country}"></span>
+        </div>
+        <div>
+            <form action="/addresses/edit" method="get">
+                <input type="hidden" name="id" th:value="${address.id}"/>
+                <button type="submit">Edit</button>
+            </form>
+            <form action="/addresses/remove" method="post">
+                <input type="hidden" name="id" th:value="${address.id}"/>
+                <button type="submit">Remove</button>
+            </form>
+        </div>
+    </li>
+</ul>
+</body>
+</html>

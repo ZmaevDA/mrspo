@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Company</title>
+    <link rel="stylesheet" th:href="@{/css/add-contact.css}"/>
+</head>
+<body>
+<h1>Edit Company</h1>
+
+<form action="/companies/edit" method="post">
+    <input type="hidden" name="id" th:value="${company.id}"/>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:value="${company.name}" required/><br/>
+
+    <label for="industry">Industry:</label>
+    <input type="text" id="industry" name="industry" th:value="${company.industry}" required/><br/>
+    <br>
+    <button type="submit">Update Company</button>
+</form>
+
+<a href="/companies">Back to Company List</a>
+
+</body>
+</html>

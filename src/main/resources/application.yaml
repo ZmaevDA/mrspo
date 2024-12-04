@@ -1,0 +1,15 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  datasource:
+    url: jdbc:postgresql://localhost:5432/contactsdb
+    username: admin
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  application:
+    name: contact

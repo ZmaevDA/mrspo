@@ -1,0 +1,390 @@
+.header {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+    padding: 20px; /* Отступы внутри хедера */
+    background: #010409;
+}
+
+.header-container {
+    display: flex;
+    align-items: center; /* Выравниваем текст и картинку по центру вертикально */
+    gap: 15px; /* Расстояние между картинкой и текстом */
+}
+
+.header-logo {
+    width: 50px; /* Ширина картинки */
+    height: 50px; /* Высота картинки */
+    object-fit: contain; /* Подгоняет изображение под заданные размеры */
+}
+
+.header h1 {
+    color: white;
+    font-size: 2rem;
+    margin: 0;
+    background: #010409;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: #0D1117;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: #0D1117;
+}
+
+h1 {
+    margin: 0;
+    padding: 20px;
+    color: white;
+    text-align: start;
+    background: #010409;
+}
+
+.navbar {
+    margin: 0;
+    display: flex;
+    padding: 10px;
+    justify-content: start;
+    background-color: #010409;
+    list-style-type: none;
+    position: relative;
+}
+
+.navbar::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #2A2F37;
+}
+
+.navbar li {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    margin-left: 5px;
+}
+
+.navbar a:hover {
+    background-color: #15191F;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.submit {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background-color: #45a049;
+}
+
+.add-button {
+    color: white;
+    border: none;
+    justify-content: start;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+    display: table;
+    padding-top: 10px;
+    margin-left: -440px;
+}
+
+.remove {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background-color: #d21f31;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list li {
+    background-color: #fff;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+strong {
+    color: #333;
+}
+
+span {
+    color: #555;
+}
+
+.add-contact-link {
+    display: inline-block;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.add-contact-link:hover {
+    background-color: #555;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-buttons button {
+    margin-left: 10px;
+}
+
+.open-modal-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #2A2F37;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-container {
+    display: flex;
+    align-self: center;
+    gap: 15px;
+}
+
+.open-modal-button,
+.remove {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    background: #2A2F37;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.remove:hover {
+    background: red;
+    transform: scale(1.05);
+}
+
+.open-modal-button:hover {
+    background-color: #15191F;
+    transform: scale(1.05);
+}
+
+.open-modal-button:active {
+    background-color: #15191F;
+    transform: scale(0.98);
+}
+
+.modal-content {
+    background-color: #15191F; /* Темный фон, подходящий для сайта */
+    color: white; /* Белый текст для контраста */
+    margin: 10% auto; /* Центрирование окна */
+    padding: 20px;
+    border: 1px solid #2A2F37; /* Цвет границы в стиле сайта */
+    width: 30%; /* Ширина окна */
+    border-radius: 8px; /* Сглаженные углы */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Тень для выделения */
+}
+
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000; /* На переднем плане */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Темный полупрозрачный фон */
+}
+
+.close {
+    color: #cccccc; /* Серый цвет для кнопки закрытия */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #ffffff; /* Подсветка при наведении */
+    text-decoration: none;
+}
+
+.form-group label {
+    color: #cccccc; /* Легкий контраст для текста меток */
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #2A2F37; /* Фон для полей ввода */
+    color: white; /* Цвет текста */
+    border: 1px solid #444;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #0d0e13; /* Акцентный цвет при фокусе */
+}
+
+.modal-buttons button {
+    background-color: #45a049; /* Зеленый цвет для кнопки "Save" */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-buttons button:hover {
+    background-color: #343c46; /* Более темный зеленый при наведении */
+}
+
+.modal-buttons #cancelButton {
+    background-color: #d21f31; /* Красный для кнопки "Cancel" */
+}
+
+.modal-buttons #cancelButton:hover {
+    background-color: #bd2130;
+}
+
+.button-container img {
+    width: 20px;
+    height: 20px;
+}
+
+ul.list {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #2A2F37;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background: #2A2F37;
+}
+
+button {
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.industry-label {
+    color: #cccccc;
+}
+
+.industry-name {
+    color: #ffffff;
+}
